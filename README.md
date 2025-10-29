@@ -1,7 +1,7 @@
-# 🧠 **Projeto ETL Medallion - Cotação de Moedas**
+# 💰 **Projeto ETL Medallion - Cotação de Moedas**
 
-Este projeto implementa um pipeline completo de **ETL (Extração, Transformação e Carga)** baseado na **Arquitetura Medallion**, com foco na coleta, tratamento e visualização de cotações de moedas (USD, EUR, BTC).  
-O objetivo é demonstrar, de forma prática, um fluxo de engenharia de dados que vai desde a extração de dados brutos até a entrega de informações analíticas em uma camada de valor (Ouro).
+Este projeto implementa um pipeline completo de **ETL (Extração, Transformação e Carga)** utilizando a **Arquitetura Medallion**, com foco na coleta, tratamento e visualização de cotações de moedas (USD, EUR, BTC).  
+O objetivo é demonstrar, de forma prática, o fluxo de engenharia de dados desde a extração até a apresentação analítica em dashboard interativo.
 
 ---
 
@@ -23,56 +23,56 @@ O objetivo é demonstrar, de forma prática, um fluxo de engenharia de dados que
 
 ## 💡 **Introdução**
 
-O projeto **ETL Medallion (Cotação de Moedas)** foi desenvolvido com o intuito de aplicar boas práticas de engenharia de dados, utilizando a arquitetura Medallion para garantir qualidade, rastreabilidade e valor agregado aos dados.  
-
-Através do pipeline, os dados são extraídos de uma API pública de cotações de moedas, tratados e transformados em diferentes camadas de qualidade, culminando em uma camada final pronta para análise e visualização interativa.
+O projeto **ETL Medallion (Cotação de Moedas)** aplica boas práticas de engenharia de dados com foco em modularidade, rastreabilidade e valor analítico.  
+O pipeline coleta cotações de moedas via API pública, processa as informações em múltiplas etapas e fornece uma camada final pronta para visualização em **Streamlit**.
 
 ---
 
 ## 🏗️ **Arquitetura do Projeto**
 
-A **Arquitetura Medallion** organiza o fluxo de dados em três camadas principais:
+A **Arquitetura Medallion** organiza o fluxo de dados em três camadas:
 
 1. **Bronze:**  
-   - Dados brutos, diretamente extraídos da API.  
+   - Dados brutos extraídos da API.  
    - Armazenamento em formato JSON.  
 
 2. **Prata:**  
    - Dados limpos e padronizados.  
-   - Conversão para o formato CSV (tabular).  
+   - Conversão para o formato tabular (CSV).  
 
 3. **Ouro:**  
-   - Aplicação das regras de negócio.  
-   - Filtragem das moedas USD, EUR e BTC.  
-   - Criação da coluna `status_variacao`, que indica a tendência de valorização ou desvalorização.  
+   - Aplicação de regras de negócio.  
+   - Filtragem de moedas (USD, EUR, BTC) e criação da coluna `status_variacao`.  
 
-Essa abordagem facilita o versionamento, reprocessamento e auditoria dos dados ao longo do ciclo de vida.
+Essa estrutura garante rastreabilidade, qualidade e consistência dos dados processados.
 
 ---
 
 ## 🧰 **Tecnologias Utilizadas**
 
 - **Linguagem:** Python 3.10+
-- **Bibliotecas Principais:**
-  - `pandas` – Manipulação e transformação de dados
-  - `requests` – Consumo de APIs
-  - `streamlit` – Visualização interativa dos resultados
-- **Gerenciamento de Ambiente:** `venv`
-- **Formato de Armazenamento:** JSON / CSV
+- **Bibliotecas:**
+  - `pandas` – Manipulação e transformação de dados  
+  - `requests` – Consumo de APIs  
+  - `streamlit` – Dashboard interativo para visualização  
+- **Ambiente Virtual:** `venv`
+- **Formatos de Armazenamento:** JSON / CSV
 
 ---
 
 ## 📂 **Estrutura de Pastas**
 
 ```bash
-ETL_Medallion/
+ETLCotacaoMoeda/
 │
-├── data/
-│   ├── bronze/
-│   ├── prata/
-│   └── ouro/
+├── venv_novo/
+│   ├── etc/
+│   ├── Lib/
+│   ├── Scripts/
+│   ├── share/
+│   └── pyvenv.cfg
 │
-├── etl_medallion.py
+├── .gitignore
 ├── demonstracao_ouro.py
-├── requirements.txt
+├── etl_medallion.py
 └── README.md
